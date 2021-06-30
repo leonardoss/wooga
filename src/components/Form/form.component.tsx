@@ -5,6 +5,8 @@ import Field from './field.component';
 import { FormProps, FieldType, GenericObjectType, ValidationType } from './form.types';
 import type { State } from './form.types';
 
+import './form.scss';
+
 const validateField = (key: string, value: string, currentValue: string) => {
   switch (key) {
     case 'required':
@@ -74,8 +76,7 @@ const Form: FC<FormProps> = ({
   };
 
   return (
-    <form action={action} method={method} onSubmit={handleSubmit}>
-      <legend>{layout}</legend>
+    <form action={action} method={method} onSubmit={handleSubmit} className={`layout-${layout}`}>
       {fields.map((field: FieldType) => (
         <Field
           key={field.name}
@@ -85,7 +86,9 @@ const Form: FC<FormProps> = ({
           fieldValue={fieldValue}
         />
       ))}
-      <input type="submit" value={submitButton?.label || 'Submit'} />
+      <div className="form-control">
+        <input type="submit" value={submitButton?.label || 'Submit'} className="btn btn-submit" />
+      </div>
     </form>
   );
 };

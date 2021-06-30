@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import './App.css';
 
 import Form from './components/Form';
+
+import './App.scss';
 
 const options = {
   action: '/foobar',
   method: 'post',
-  layout: 'horizontal',
+  layout: 'vertical',
   fields: [
     {
       type: 'text',
@@ -14,15 +15,15 @@ const options = {
       name: 'someName',
       validation: [
         {
-          fieldStartsWith: {
-            value: 'wooga.name',
-            msg: 'expected field starting with: wooga.name',
-          },
-        },
-        {
           required: {
             value: true,
             msg: 'field required',
+          },
+        },
+        {
+          fieldStartsWith: {
+            value: 'wooga.name',
+            msg: 'expected field starting with: wooga.name',
           },
         },
       ],
@@ -52,6 +53,7 @@ const options = {
 const App: FC = () => {
   return (
     <div className="App">
+      <h1>Wooga - Frontend engineer technical test</h1>
       <Form {...options} />
     </div>
   );

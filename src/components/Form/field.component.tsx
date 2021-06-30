@@ -15,10 +15,13 @@ const Field: FC<FieldProps> = ({ field, setFieldValue, fieldValue, errors }: Fie
 
   return (
     <div className="form-control" key={name}>
-      <label htmlFor={name}>{label}</label>
+      <label className="form-label" htmlFor={name}>
+        {label}
+      </label>
       <input
         type={type}
         name={name}
+        className={`input-${type}`}
         value={fieldValue[name] || ''}
         onChange={({ target }) =>
           setFieldValue((prevState: State) => {
@@ -31,7 +34,7 @@ const Field: FC<FieldProps> = ({ field, setFieldValue, fieldValue, errors }: Fie
       {errors[name] &&
         Object.keys(errors[name]).map((key) => (
           <div key={errors[name][key]} className="error">
-            {errors[name][key]}
+            * {errors[name][key]}
           </div>
         ))}
     </div>

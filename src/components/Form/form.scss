@@ -1,0 +1,37 @@
+//generics
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.btn {
+  background: #27343c;
+  border: none;
+  display: block;
+  height: 60px;
+  padding: 0 40px;
+  color: #fff;
+  font-size: 20px;
+  margin: auto;
+}
+.input-text {
+  height: 60px;
+  width: 100%;
+  font-size: 20px;
+  padding: 0 0 0 10px;
+  border: 1px solid #ccc;
+}
+
+.form-control {
+  margin-bottom: 12px;
+}
+.form-label {
+  font-size: 20px;
+}
+.error {
+  color: red;
+}
+.layout-horizontal {
+  display: flex;
+  align-items: flex-end;
+}
