@@ -16,10 +16,10 @@ const Field: FC<FieldProps> = ({ field, setFieldValue, fieldValue, errors }: Fie
   return (
     <div className="form-control" key={name}>
       <label className="form-label" htmlFor={name}>
-        {label}
+        {label || name}
       </label>
       <input
-        type={type}
+        type={type || 'text'}
         name={name}
         className={`input-${type}`}
         value={fieldValue[name] || ''}

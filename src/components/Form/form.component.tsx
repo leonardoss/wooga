@@ -7,7 +7,11 @@ import type { State } from './form.types';
 
 import './form.scss';
 
-export const validateField = (key: string, value: string, currentValue: string) => {
+export const validateField = (
+  key: string,
+  value: string,
+  currentValue: string
+): boolean | undefined => {
   switch (key) {
     case 'required':
       return currentValue !== '';
@@ -49,16 +53,20 @@ const Form: FC<FormProps> = ({
 
               isValid = false;
             } else {
-              setErrors((prevState: State) => {
-                const objTransformed: any = prevState[name];
-                delete objTransformed[key];
-                const newValue: Partial<State> = {
-                  [name]: {
-                    ...objTransformed,
-                  },
-                };
-                return Object.assign({}, prevState, newValue);
-              });
+              if (Object.keys(errors).length !== 0) {
+                setErrors((prevState: State) => {
+                  const objTransformed: any = prevState[name];
+                  if (objTransformed) {
+                    delete objTransformed[key];
+                  }
+                  const newValue: Partial<State> = {
+                    [name]: {
+                      ...objTransformed,
+                    },
+                  };
+                  return Object.assign({}, prevState, newValue);
+                });
+              }
             }
           }
         });
@@ -71,7 +79,9 @@ const Form: FC<FormProps> = ({
   const handleSubmit = (event: FormEvent<EventTarget>) => {
     event.preventDefault();
     if (handleValidation()) {
-      onSubmitForm(fieldValue);
+      if (typeof onSubmitForm === 'function') {
+        onSubmitForm(fieldValue);
+      }
     }
   };
 

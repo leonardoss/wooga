@@ -17,7 +17,7 @@ const options = {
         {
           required: {
             value: true,
-            msg: 'field required',
+            msg: 'Name is required',
           },
         },
         {
@@ -30,13 +30,13 @@ const options = {
     },
     {
       type: 'text',
-      label: 'Name 2',
-      name: 'someName 2',
+      label: 'Last Name',
+      name: 'lastName',
       validation: [
         {
           required: {
             value: true,
-            msg: 'field required',
+            msg: 'last name is required',
           },
         },
       ],

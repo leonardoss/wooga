@@ -35,13 +35,13 @@ exports[`Testing App App renders correctly 1`] = `
     >
       <label
         className="form-label"
-        htmlFor="someName 2"
+        htmlFor="lastName"
       >
-        Name 2
+        Last Name
       </label>
       <input
         className="input-text"
-        name="someName 2"
+        name="lastName"
         onChange={[Function]}
         type="text"
         value=""

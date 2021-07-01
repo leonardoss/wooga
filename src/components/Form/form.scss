@@ -14,7 +14,7 @@
   font-size: 20px;
   margin: auto;
 }
-.input-text {
+input[class^='input-'] {
   height: 60px;
   width: 100%;
   font-size: 20px;
@@ -33,5 +33,8 @@
 }
 .layout-horizontal {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  .btn-submit {
+    margin-top: 23px;
+  }
 }
