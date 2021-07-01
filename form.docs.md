@@ -5,6 +5,21 @@
 The idea was to create a generic `<Form />` component to easily generate forms starting with a
 simple input. Visual examples can be found on Storybook. Below let's discuss the API.
 
+## My approach
+
+- My idea was to create a generic `<Form />` that receives an object of configurations (described
+  below) and generates a `HTML` form.
+- I've decided to create the fields starting with a `fields` object to have more control over what
+  was being generated.
+- The state/values are controlled and returned to the consumer.
+- The validations were built with the intention of being generic, they are based on a function to
+  validate the value
+- Errors are a state abstract to the consumer, they are controlled by the form as well.
+- My idea to extend to more types of fields is basically create a condition in `<Field>` to support
+  fields like `<select>`
+- My biggest challenges in this app were validations and errors (I took 50% of my time working here
+  to solve them)
+
 ## API
 
 ### `Form`
@@ -33,10 +48,10 @@ simple input. Visual examples can be found on Storybook. Below let's discuss the
 | -------------- | ----------------------------- | ------------------------------------------ |
 | validation key | `required \| fieldStartsWith` | Specifies the key for the given validation |
 
-| Validation key    | options   | Description                                             |
-| ----------------- | --------- | ------------------------------------------------------- |
-| `fieldStartsWith` | `string`  | Validate if the field values start with the give string |
-| `required`        | `boolean` | Validates if the field has value                        |
+| Validation key    | options   | Description                                              |
+| ----------------- | --------- | -------------------------------------------------------- |
+| `fieldStartsWith` | `string`  | Validate if the field values start with the given string |
+| `required`        | `boolean` | Validates if the field has value                         |
 
 #### Example of use
 
