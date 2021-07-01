@@ -7,7 +7,7 @@ import type { State } from './form.types';
 
 import './form.scss';
 
-const validateField = (key: string, value: string, currentValue: string) => {
+export const validateField = (key: string, value: string, currentValue: string) => {
   switch (key) {
     case 'required':
       return currentValue !== '';

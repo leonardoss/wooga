@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing App App renders correctly 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Wooga - Frontend engineer technical test
+  </h1>
+  <form
+    action="/foobar"
+    className="layout-vertical"
+    method="post"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-control"
+    >
+      <label
+        className="form-label"
+        htmlFor="someName"
+      >
+        Name
+      </label>
+      <input
+        className="input-text"
+        name="someName"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <label
+        className="form-label"
+        htmlFor="someName 2"
+      >
+        Name 2
+      </label>
+      <input
+        className="input-text"
+        name="someName 2"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <input
+        className="btn btn-submit"
+        type="submit"
+        value="Send data"
+      />
+    </div>
+  </form>
+</div>
+`;

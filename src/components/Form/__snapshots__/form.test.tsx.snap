@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing App Form renders correctly 1`] = `
+<form
+  action="/foo/bar.php"
+  className="layout-undefined"
+  method="GET"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-control"
+  >
+    <label
+      className="form-label"
+      htmlFor="someName"
+    >
+      Name
+    </label>
+    <input
+      className="input-text"
+      name="someName"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-control"
+  >
+    <label
+      className="form-label"
+      htmlFor="someName 2"
+    >
+      Name 2
+    </label>
+    <input
+      className="input-text"
+      name="someName 2"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-control"
+  >
+    <input
+      className="btn btn-submit"
+      type="submit"
+      value="Submit"
+    />
+  </div>
+</form>
+`;
