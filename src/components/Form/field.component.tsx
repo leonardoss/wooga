@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 
 import { FieldType, GenericObjectType } from './form.types';
-import type { State } from './form.types';
 
 interface FieldProps {
   field: FieldType;
-  setFieldValue: any;
+  setFieldValue: (arg: GenericObjectType) => void;
   fieldValue: GenericObjectType;
-  errors: any;
+  errors: GenericObjectType;
 }
 
 const Field: FC<FieldProps> = ({ field, setFieldValue, fieldValue, errors }: FieldProps) => {
@@ -24,11 +23,10 @@ const Field: FC<FieldProps> = ({ field, setFieldValue, fieldValue, errors }: Fie
         className={`input-${type}`}
         value={fieldValue[name] || ''}
         onChange={({ target }) =>
-          setFieldValue((prevState: State) => {
-            const newValue: Partial<State> = { [target.name]: target.value };
-
-            return Object.assign({}, prevState, newValue);
-          })
+          setFieldValue((prevState: GenericObjectType) => ({
+            ...prevState,
+            [target.name]: target.value,
+          }))
         }
       />
       {errors[name] &&

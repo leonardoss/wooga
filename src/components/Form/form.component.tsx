@@ -29,7 +29,7 @@ const Form: FC<FormProps> = ({
   submitButton,
 }: FormProps) => {
   const [fieldValue, setFieldValue] = useState<GenericObjectType>({});
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<GenericObjectType>({});
 
   const handleValidation = (): boolean => {
     let isValid = true;
@@ -42,7 +42,7 @@ const Form: FC<FormProps> = ({
           for (const key in item) {
             if (!validateField(key, item[key].value, currentValue)) {
               setErrors((prevState: State) => {
-                const newValue: Partial<State> = {
+                const newValue = {
                   [name]: {
                     ...(prevState[name] as State),
                     [key]: `${item[key].msg}`,
@@ -55,11 +55,11 @@ const Form: FC<FormProps> = ({
             } else {
               if (Object.keys(errors).length !== 0) {
                 setErrors((prevState: State) => {
-                  const objTransformed: any = prevState[name];
+                  const objTransformed = prevState[name] as State;
                   if (objTransformed) {
                     delete objTransformed[key];
                   }
-                  const newValue: Partial<State> = {
+                  const newValue = {
                     [name]: {
                       ...objTransformed,
                     },

@@ -21,7 +21,6 @@ export interface FormProps {
 export interface SubmitButtonType {
   label?: string;
 }
-export interface GenericObjectType {
-  [key: string]: string;
-}
+export type GenericObjectType = { [key: string]: any };
 export type State = Record<string, unknown>;
+export type SetState = (prevState: GenericObjectType) => { [x: string]: string }
