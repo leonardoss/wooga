@@ -3,7 +3,6 @@ import React, { FC, FormEvent, useState } from 'react';
 import Field from './field.component';
 
 import { FormProps, FieldType, GenericObjectType, ValidationType } from './form.types';
-import type { State } from './form.types';
 
 import './form.scss';
 
@@ -29,22 +28,22 @@ const Form: FC<FormProps> = ({
   submitButton,
 }: FormProps) => {
   const [fieldValue, setFieldValue] = useState<GenericObjectType>({});
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<GenericObjectType>({});
 
   const handleValidation = (): boolean => {
     let isValid = true;
 
     fields.forEach(({ name, validation }) => {
-      const currentValue: string = fieldValue[name] || '';
+      const currentValue = fieldValue[name] || '';
 
       if (typeof validation !== 'undefined') {
         validation.map((item: ValidationType) => {
           for (const key in item) {
             if (!validateField(key, item[key].value, currentValue)) {
-              setErrors((prevState: State) => {
-                const newValue: Partial<State> = {
+              setErrors((prevState) => {
+                const newValue = {
                   [name]: {
-                    ...(prevState[name] as State),
+                    ...prevState[name],
                     [key]: `${item[key].msg}`,
                   },
                 };
@@ -54,12 +53,12 @@ const Form: FC<FormProps> = ({
               isValid = false;
             } else {
               if (Object.keys(errors).length !== 0) {
-                setErrors((prevState: State) => {
-                  const objTransformed: any = prevState[name];
+                setErrors((prevState) => {
+                  const objTransformed = prevState[name];
                   if (objTransformed) {
                     delete objTransformed[key];
                   }
-                  const newValue: Partial<State> = {
+                  const newValue = {
                     [name]: {
                       ...objTransformed,
                     },
